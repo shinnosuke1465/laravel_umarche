@@ -31,6 +31,7 @@ if (file_exists($maintenance = __DIR__.'/../storage/framework/maintenance.php'))
 |
 */
 
+//requireなしで別ファイルを利用可能。useやnamespace使える
 require __DIR__.'/../vendor/autoload.php';
 
 /*
