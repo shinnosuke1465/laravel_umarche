@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Owner\Auth;
+namespace App\Http\Controllers\User\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
@@ -15,7 +15,7 @@ class PasswordResetLinkController extends Controller
      */
     public function create(): View
     {
-        return view('owner.auth.forgot-password');
+        return view('user.auth.forgot-password');
     }
 
     /**

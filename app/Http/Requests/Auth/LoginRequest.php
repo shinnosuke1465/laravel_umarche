@@ -42,6 +42,7 @@ class LoginRequest extends FormRequest
         $this->ensureIsNotRateLimited();
 
         if($this->routeIs('owner.*')){
+            //ownerのログインホームから入力情報が渡ってきたら$guardにguardで設定したowners情報を格納する
             $guard = 'owners';
         } elseif($this->routeIs('admin.*')){
             $guard = 'admin';
