@@ -20,14 +20,11 @@ class OwnersController extends Controller
      */
     public function index()
     {
-        $e_all = Owner::all();
-        $q_get = DB::table('owners')->select('name', 'created_at')->get();
-        // $q_first = DB::table('owners')->select('name')->first();
-        // dd('オーナー一覧です');
-
+        $owners = Owner::select('id', 'name', 'email', 'created_at')
+        ->paginate(3);
 
         return view('admin.owners.index',
-        compact('e_all', 'q_get'));
+        compact('owners'));
     }
 
     /**
@@ -35,7 +32,7 @@ class OwnersController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.owners.create');
     }
 
     /**
