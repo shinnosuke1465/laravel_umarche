@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Owner; // Eloquent エロクアント
+use Illuminate\Support\Facades\DB; // QueryBuilder クエリビルダ
 
 class OwnersController extends Controller
 {
@@ -18,7 +20,14 @@ class OwnersController extends Controller
      */
     public function index()
     {
-        //
+        $e_all = Owner::all();
+        $q_get = DB::table('owners')->select('name', 'created_at')->get();
+        // $q_first = DB::table('owners')->select('name')->first();
+        // dd('オーナー一覧です');
+
+
+        return view('admin.owners.index',
+        compact('e_all', 'q_get'));
     }
 
     /**
