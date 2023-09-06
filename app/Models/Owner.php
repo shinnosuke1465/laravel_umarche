@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Shop;
 
 class Owner extends Authenticatable
 {
@@ -41,4 +42,9 @@ class Owner extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function shop()
+    {
+        return $this->hasOne(Shop::class);
+    }
 }
