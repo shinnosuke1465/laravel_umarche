@@ -10,6 +10,7 @@ class Shop extends Model
 {
     use HasFactory;
 
+    //shopのテーブルの情報
     protected $fillable = [
         'owner_id',
         'name',
