@@ -23,14 +23,6 @@
                       </div>
                       <div class="text-xl">{{ $shop->name }}</div>
                       <x-thumbnail :filename="$shop->filename" type="shops" />
-                      <div>
-                        @if (isset($shop->filename) && $shop->filename != "")
-                          <img src="{{ asset('images/no_image.jpg') }}">
-                        @else
-                          <img src="{{ asset('storage/shops/' . $shop->filename) }} ">
-                        @endif
-                      </div>
-
                     </div>
                     </a>
                     </div>

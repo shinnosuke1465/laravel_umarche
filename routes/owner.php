@@ -35,6 +35,9 @@ Route::prefix('shops')->
         Route::post('update/{shop}', [ShopController::class, 'update'])->name('shops.update');
 });
 
+Route::resource('images', ImageController::class)
+->middleware('auth:owners')->except(['show']);
+
 Route::get('/dashboard', function () {
     return view('owner.dashboard');
 })->middleware(['auth:owners','verified'])->name('dashboard');
