@@ -23,4 +23,11 @@ class Shop extends Model
     {
         return $this->belongsTo(Owner::class);
     }
+    
+    //メソッド名相手の名前
+    public function product()
+    {
+        //自分が1で相手が多の場合hasMany
+        return $this->hasMany(Product::class);
+    }
 }
