@@ -9,7 +9,7 @@
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
               <div class="p-6 bg-white border-b border-gray-200">
-                <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                {{-- <x-auth-validation-errors class="mb-4" :errors="$errors" /> --}}
                 <form method="post" action="{{ route('owner.products.store')}}" >
                     @csrf
                     <div class="-m-2">
@@ -92,7 +92,7 @@
           </div>
       </div>
   </div>
-  {{-- <script>
+  <script>
     'use strict'
     const images = document.querySelectorAll('.image')
     
@@ -109,6 +109,6 @@
     }, )
     })
 
-  </script> --}}
+  </script>
 
 </x-app-layout>

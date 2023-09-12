@@ -1,3 +1,6 @@
+@import 'micromodal';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
