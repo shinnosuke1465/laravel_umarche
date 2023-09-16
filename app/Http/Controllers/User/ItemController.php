@@ -19,18 +19,18 @@ class ItemController extends Controller
         //「ユーザー」が認証されているかを確認
         $this->middleware('auth:users');
 
-        $this->middleware(function ($request, $next) {
-            //ItemのIDを取得
-            $id = $request->route()->parameter('item');
-            if (!is_null($id)) {
+        // $this->middleware(function ($request, $next) {
+        //     //ItemのIDを取得
+        //     $id = $request->route()->parameter('item');
+        //     if (!is_null($id)) {
 
-                $itemId = Product::availableItems()->where('products.id', $id)->exists();
-                if (!$itemId) {
-                    abort(404);
-                }
-            }
-            return $next($request);
-        });
+        //         $itemId = Product::availableItems()->where('products.id', $id)->exists();
+        //         if (!$itemId) {
+        //             abort(404);
+        //         }
+        //     }
+        //     return $next($request);
+        // });
     }
     public function index()
     {
@@ -82,5 +82,19 @@ class ItemController extends Controller
             'user.index',
             compact('products')
         );
+    }
+
+    public function show($id)
+    {
+        $product = Product::findOrFail($id);
+        $quantity = Stock::where('product_id', $product->id)
+        ->sum('quantity');
+
+        if($quantity > 9){
+            $quantity = 9;
+          }
+
+        return view('user.show',
+        compact('product', 'quantity'));
     }
 }
